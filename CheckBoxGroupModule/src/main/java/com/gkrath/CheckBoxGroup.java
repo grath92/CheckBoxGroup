@@ -2,15 +2,12 @@ package com.gkrath;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.annotation.IdRes;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
-
-import com.gkrath.R;
 
 
 public class CheckBoxGroup extends LinearLayout {
@@ -112,7 +109,7 @@ public class CheckBoxGroup extends LinearLayout {
      * @see #getCheckedCheckBoxId()
      * @see #clearCheck()
      */
-    public void check(@IdRes int id) {
+    public void check(int id) {
         // don't even bother
         if (id != -1 && (id == mCheckedId)) {
             return;
@@ -129,7 +126,7 @@ public class CheckBoxGroup extends LinearLayout {
         setCheckedId(id);
     }
 
-    private void setCheckedId(@IdRes int id) {
+    private void setCheckedId(int id) {
         mCheckedId = id;
         if (id != -1) {
             if (mOnCheckedChangeListener != null) {
@@ -154,7 +151,7 @@ public class CheckBoxGroup extends LinearLayout {
      * @see #check(int)
      * @see #clearCheck()
      */
-    @IdRes
+
     public int getCheckedCheckBoxId() {
         return mCheckedId;
     }
@@ -292,7 +289,7 @@ public class CheckBoxGroup extends LinearLayout {
          * @param group     the group in which the checked CheckBox has changed
          * @param checkedId the unique identifier of the newly checked CheckBox
          */
-        public void onCheckedChanged(CheckBoxGroup group, @IdRes int checkedId);
+        public void onCheckedChanged(CheckBoxGroup group, int checkedId);
     }
 
     private class CheckedStateTracker implements CompoundButton.OnCheckedChangeListener {
@@ -311,7 +308,7 @@ public class CheckBoxGroup extends LinearLayout {
             if (isChecked) {
                 int id = buttonView.getId();
                 setCheckedId(id);
-            }else {
+            } else {
                 setCheckedId(-1);
             }
 
