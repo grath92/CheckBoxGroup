@@ -15,9 +15,6 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-        mavenCentral()
     }
 
-    group = "com.github.grath92"
-    version = "1.0"
 }
